@@ -1,0 +1,290 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red255\green255\blue254;\red0\green0\blue0;\red144\green1\blue18;
+\red9\green60\blue148;\red19\green118\blue70;}
+{\*\expandedcolortbl;;\cssrgb\c100000\c100000\c99608;\cssrgb\c0\c0\c0;\cssrgb\c63922\c8235\c8235;
+\cssrgb\c1569\c31765\c64706;\cssrgb\c3529\c52549\c34510;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf0 \cb2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 \{\cb1 \
+\cb2     \cf4 \strokec4 "name"\cf0 \strokec3 : \cf5 \strokec5 "taxi_data"\cf0 \strokec3 ,\cb1 \
+\cb2     \cf4 \strokec4 "objectId"\cf0 \strokec3 : \cf5 \strokec5 "b9b3a1ac-0d23-4daf-bf71-8d6a87f19e68"\cf0 \strokec3 ,\cb1 \
+\cb2     \cf4 \strokec4 "properties"\cf0 \strokec3 : \{\cb1 \
+\cb2         \cf4 \strokec4 "activities"\cf0 \strokec3 : [\cb1 \
+\cb2             \{\cb1 \
+\cb2                 \cf4 \strokec4 "name"\cf0 \strokec3 : \cf5 \strokec5 "Copy_qs4"\cf0 \strokec3 ,\cb1 \
+\cb2                 \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "Copy"\cf0 \strokec3 ,\cb1 \
+\cb2                 \cf4 \strokec4 "dependsOn"\cf0 \strokec3 : [],\cb1 \
+\cb2                 \cf4 \strokec4 "policy"\cf0 \strokec3 : \{\cb1 \
+\cb2                     \cf4 \strokec4 "timeout"\cf0 \strokec3 : \cf5 \strokec5 "0.12:00:00"\cf0 \strokec3 ,\cb1 \
+\cb2                     \cf4 \strokec4 "retry"\cf0 \strokec3 : \cf6 \strokec6 0\cf0 \strokec3 ,\cb1 \
+\cb2                     \cf4 \strokec4 "retryIntervalInSeconds"\cf0 \strokec3 : \cf6 \strokec6 30\cf0 \strokec3 ,\cb1 \
+\cb2                     \cf4 \strokec4 "secureOutput"\cf0 \strokec3 : \cf5 \strokec5 false\cf0 \strokec3 ,\cb1 \
+\cb2                     \cf4 \strokec4 "secureInput"\cf0 \strokec3 : \cf5 \strokec5 false\cf0 \cb1 \strokec3 \
+\cb2                 \},\cb1 \
+\cb2                 \cf4 \strokec4 "typeProperties"\cf0 \strokec3 : \{\cb1 \
+\cb2                     \cf4 \strokec4 "source"\cf0 \strokec3 : \{\cb1 \
+\cb2                         \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "BinarySource"\cf0 \strokec3 ,\cb1 \
+\cb2                         \cf4 \strokec4 "storeSettings"\cf0 \strokec3 : \{\cb1 \
+\cb2                             \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "HttpReadSettings"\cf0 \strokec3 ,\cb1 \
+\cb2                             \cf4 \strokec4 "requestMethod"\cf0 \strokec3 : \cf5 \strokec5 "GET"\cf0 \cb1 \strokec3 \
+\cb2                         \},\cb1 \
+\cb2                         \cf4 \strokec4 "formatSettings"\cf0 \strokec3 : \{\cb1 \
+\cb2                             \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "BinaryReadSettings"\cf0 \cb1 \strokec3 \
+\cb2                         \},\cb1 \
+\cb2                         \cf4 \strokec4 "datasetSettings"\cf0 \strokec3 : \{\cb1 \
+\cb2                             \cf4 \strokec4 "annotations"\cf0 \strokec3 : [],\cb1 \
+\cb2                             \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "Binary"\cf0 \strokec3 ,\cb1 \
+\cb2                             \cf4 \strokec4 "typeProperties"\cf0 \strokec3 : \{\cb1 \
+\cb2                                 \cf4 \strokec4 "location"\cf0 \strokec3 : \{\cb1 \
+\cb2                                     \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "HttpServerLocation"\cf0 \strokec3 ,\cb1 \
+\cb2                                     \cf4 \strokec4 "relativeUrl"\cf0 \strokec3 : \cf5 \strokec5 "trip-data/yellow_tripdata_2025-05.parquet"\cf0 \cb1 \strokec3 \
+\cb2                                 \}\cb1 \
+\cb2                             \},\cb1 \
+\cb2                             \cf4 \strokec4 "externalReferences"\cf0 \strokec3 : \{\cb1 \
+\cb2                                 \cf4 \strokec4 "connection"\cf0 \strokec3 : \cf5 \strokec5 "12e17a61-9f08-4a3a-978c-086f44c6a3f2"\cf0 \cb1 \strokec3 \
+\cb2                             \}\cb1 \
+\cb2                         \}\cb1 \
+\cb2                     \},\cb1 \
+\cb2                     \cf4 \strokec4 "sink"\cf0 \strokec3 : \{\cb1 \
+\cb2                         \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "BinarySink"\cf0 \strokec3 ,\cb1 \
+\cb2                         \cf4 \strokec4 "storeSettings"\cf0 \strokec3 : \{\cb1 \
+\cb2                             \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "LakehouseWriteSettings"\cf0 \cb1 \strokec3 \
+\cb2                         \},\cb1 \
+\cb2                         \cf4 \strokec4 "datasetSettings"\cf0 \strokec3 : \{\cb1 \
+\cb2                             \cf4 \strokec4 "annotations"\cf0 \strokec3 : [],\cb1 \
+\cb2                             \cf4 \strokec4 "linkedService"\cf0 \strokec3 : \{\cb1 \
+\cb2                                 \cf4 \strokec4 "name"\cf0 \strokec3 : \cf5 \strokec5 "hl_taxi"\cf0 \strokec3 ,\cb1 \
+\cb2                                 \cf4 \strokec4 "properties"\cf0 \strokec3 : \{\cb1 \
+\cb2                                     \cf4 \strokec4 "annotations"\cf0 \strokec3 : [],\cb1 \
+\cb2                                     \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "Lakehouse"\cf0 \strokec3 ,\cb1 \
+\cb2                                     \cf4 \strokec4 "typeProperties"\cf0 \strokec3 : \{\cb1 \
+\cb2                                         \cf4 \strokec4 "workspaceId"\cf0 \strokec3 : \cf5 \strokec5 "8b06bc6f-25b1-4e15-b8bd-348a7c22b033"\cf0 \strokec3 ,\cb1 \
+\cb2                                         \cf4 \strokec4 "artifactId"\cf0 \strokec3 : \cf5 \strokec5 "99922261-37a4-4160-8a99-b4bfe98958a1"\cf0 \strokec3 ,\cb1 \
+\cb2                                         \cf4 \strokec4 "rootFolder"\cf0 \strokec3 : \cf5 \strokec5 "Files"\cf0 \cb1 \strokec3 \
+\cb2                                     \}\cb1 \
+\cb2                                 \}\cb1 \
+\cb2                             \},\cb1 \
+\cb2                             \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "Binary"\cf0 \strokec3 ,\cb1 \
+\cb2                             \cf4 \strokec4 "typeProperties"\cf0 \strokec3 : \{\cb1 \
+\cb2                                 \cf4 \strokec4 "location"\cf0 \strokec3 : \{\cb1 \
+\cb2                                     \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "LakehouseLocation"\cf0 \strokec3 ,\cb1 \
+\cb2                                     \cf4 \strokec4 "fileName"\cf0 \strokec3 : \cf5 \strokec5 "yellow/2025-05/"\cf0 \strokec3 ,\cb1 \
+\cb2                                     \cf4 \strokec4 "folderPath"\cf0 \strokec3 : \cf5 \strokec5 "/Files/bronze"\cf0 \cb1 \strokec3 \
+\cb2                                 \}\cb1 \
+\cb2                             \}\cb1 \
+\cb2                         \}\cb1 \
+\cb2                     \},\cb1 \
+\cb2                     \cf4 \strokec4 "enableStaging"\cf0 \strokec3 : \cf5 \strokec5 false\cf0 \cb1 \strokec3 \
+\cb2                 \}\cb1 \
+\cb2             \},\cb1 \
+\cb2             \{\cb1 \
+\cb2                 \cf4 \strokec4 "name"\cf0 \strokec3 : \cf5 \strokec5 "Copy_qs4_copy2"\cf0 \strokec3 ,\cb1 \
+\cb2                 \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "Copy"\cf0 \strokec3 ,\cb1 \
+\cb2                 \cf4 \strokec4 "dependsOn"\cf0 \strokec3 : [],\cb1 \
+\cb2                 \cf4 \strokec4 "policy"\cf0 \strokec3 : \{\cb1 \
+\cb2                     \cf4 \strokec4 "timeout"\cf0 \strokec3 : \cf5 \strokec5 "0.12:00:00"\cf0 \strokec3 ,\cb1 \
+\cb2                     \cf4 \strokec4 "retry"\cf0 \strokec3 : \cf6 \strokec6 0\cf0 \strokec3 ,\cb1 \
+\cb2                     \cf4 \strokec4 "retryIntervalInSeconds"\cf0 \strokec3 : \cf6 \strokec6 30\cf0 \strokec3 ,\cb1 \
+\cb2                     \cf4 \strokec4 "secureOutput"\cf0 \strokec3 : \cf5 \strokec5 false\cf0 \strokec3 ,\cb1 \
+\cb2                     \cf4 \strokec4 "secureInput"\cf0 \strokec3 : \cf5 \strokec5 false\cf0 \cb1 \strokec3 \
+\cb2                 \},\cb1 \
+\cb2                 \cf4 \strokec4 "typeProperties"\cf0 \strokec3 : \{\cb1 \
+\cb2                     \cf4 \strokec4 "source"\cf0 \strokec3 : \{\cb1 \
+\cb2                         \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "BinarySource"\cf0 \strokec3 ,\cb1 \
+\cb2                         \cf4 \strokec4 "storeSettings"\cf0 \strokec3 : \{\cb1 \
+\cb2                             \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "HttpReadSettings"\cf0 \strokec3 ,\cb1 \
+\cb2                             \cf4 \strokec4 "requestMethod"\cf0 \strokec3 : \cf5 \strokec5 "GET"\cf0 \cb1 \strokec3 \
+\cb2                         \},\cb1 \
+\cb2                         \cf4 \strokec4 "formatSettings"\cf0 \strokec3 : \{\cb1 \
+\cb2                             \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "BinaryReadSettings"\cf0 \cb1 \strokec3 \
+\cb2                         \},\cb1 \
+\cb2                         \cf4 \strokec4 "datasetSettings"\cf0 \strokec3 : \{\cb1 \
+\cb2                             \cf4 \strokec4 "annotations"\cf0 \strokec3 : [],\cb1 \
+\cb2                             \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "Binary"\cf0 \strokec3 ,\cb1 \
+\cb2                             \cf4 \strokec4 "typeProperties"\cf0 \strokec3 : \{\cb1 \
+\cb2                                 \cf4 \strokec4 "location"\cf0 \strokec3 : \{\cb1 \
+\cb2                                     \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "HttpServerLocation"\cf0 \strokec3 ,\cb1 \
+\cb2                                     \cf4 \strokec4 "relativeUrl"\cf0 \strokec3 : \cf5 \strokec5 "trip-data/yellow_tripdata_2025-07.parquet"\cf0 \cb1 \strokec3 \
+\cb2                                 \}\cb1 \
+\cb2                             \},\cb1 \
+\cb2                             \cf4 \strokec4 "externalReferences"\cf0 \strokec3 : \{\cb1 \
+\cb2                                 \cf4 \strokec4 "connection"\cf0 \strokec3 : \cf5 \strokec5 "12e17a61-9f08-4a3a-978c-086f44c6a3f2"\cf0 \cb1 \strokec3 \
+\cb2                             \}\cb1 \
+\cb2                         \}\cb1 \
+\cb2                     \},\cb1 \
+\cb2                     \cf4 \strokec4 "sink"\cf0 \strokec3 : \{\cb1 \
+\cb2                         \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "BinarySink"\cf0 \strokec3 ,\cb1 \
+\cb2                         \cf4 \strokec4 "storeSettings"\cf0 \strokec3 : \{\cb1 \
+\cb2                             \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "LakehouseWriteSettings"\cf0 \cb1 \strokec3 \
+\cb2                         \},\cb1 \
+\cb2                         \cf4 \strokec4 "datasetSettings"\cf0 \strokec3 : \{\cb1 \
+\cb2                             \cf4 \strokec4 "annotations"\cf0 \strokec3 : [],\cb1 \
+\cb2                             \cf4 \strokec4 "linkedService"\cf0 \strokec3 : \{\cb1 \
+\cb2                                 \cf4 \strokec4 "name"\cf0 \strokec3 : \cf5 \strokec5 "hl_taxi"\cf0 \strokec3 ,\cb1 \
+\cb2                                 \cf4 \strokec4 "properties"\cf0 \strokec3 : \{\cb1 \
+\cb2                                     \cf4 \strokec4 "annotations"\cf0 \strokec3 : [],\cb1 \
+\cb2                                     \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "Lakehouse"\cf0 \strokec3 ,\cb1 \
+\cb2                                     \cf4 \strokec4 "typeProperties"\cf0 \strokec3 : \{\cb1 \
+\cb2                                         \cf4 \strokec4 "workspaceId"\cf0 \strokec3 : \cf5 \strokec5 "8b06bc6f-25b1-4e15-b8bd-348a7c22b033"\cf0 \strokec3 ,\cb1 \
+\cb2                                         \cf4 \strokec4 "artifactId"\cf0 \strokec3 : \cf5 \strokec5 "99922261-37a4-4160-8a99-b4bfe98958a1"\cf0 \strokec3 ,\cb1 \
+\cb2                                         \cf4 \strokec4 "rootFolder"\cf0 \strokec3 : \cf5 \strokec5 "Files"\cf0 \cb1 \strokec3 \
+\cb2                                     \}\cb1 \
+\cb2                                 \}\cb1 \
+\cb2                             \},\cb1 \
+\cb2                             \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "Binary"\cf0 \strokec3 ,\cb1 \
+\cb2                             \cf4 \strokec4 "typeProperties"\cf0 \strokec3 : \{\cb1 \
+\cb2                                 \cf4 \strokec4 "location"\cf0 \strokec3 : \{\cb1 \
+\cb2                                     \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "LakehouseLocation"\cf0 \strokec3 ,\cb1 \
+\cb2                                     \cf4 \strokec4 "fileName"\cf0 \strokec3 : \cf5 \strokec5 "yellow/2025-07/"\cf0 \strokec3 ,\cb1 \
+\cb2                                     \cf4 \strokec4 "folderPath"\cf0 \strokec3 : \cf5 \strokec5 "/Files/bronze"\cf0 \cb1 \strokec3 \
+\cb2                                 \}\cb1 \
+\cb2                             \}\cb1 \
+\cb2                         \}\cb1 \
+\cb2                     \},\cb1 \
+\cb2                     \cf4 \strokec4 "enableStaging"\cf0 \strokec3 : \cf5 \strokec5 false\cf0 \cb1 \strokec3 \
+\cb2                 \}\cb1 \
+\cb2             \},\cb1 \
+\cb2             \{\cb1 \
+\cb2                 \cf4 \strokec4 "name"\cf0 \strokec3 : \cf5 \strokec5 "Copy_qs4_copy3"\cf0 \strokec3 ,\cb1 \
+\cb2                 \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "Copy"\cf0 \strokec3 ,\cb1 \
+\cb2                 \cf4 \strokec4 "dependsOn"\cf0 \strokec3 : [],\cb1 \
+\cb2                 \cf4 \strokec4 "policy"\cf0 \strokec3 : \{\cb1 \
+\cb2                     \cf4 \strokec4 "timeout"\cf0 \strokec3 : \cf5 \strokec5 "0.12:00:00"\cf0 \strokec3 ,\cb1 \
+\cb2                     \cf4 \strokec4 "retry"\cf0 \strokec3 : \cf6 \strokec6 0\cf0 \strokec3 ,\cb1 \
+\cb2                     \cf4 \strokec4 "retryIntervalInSeconds"\cf0 \strokec3 : \cf6 \strokec6 30\cf0 \strokec3 ,\cb1 \
+\cb2                     \cf4 \strokec4 "secureOutput"\cf0 \strokec3 : \cf5 \strokec5 false\cf0 \strokec3 ,\cb1 \
+\cb2                     \cf4 \strokec4 "secureInput"\cf0 \strokec3 : \cf5 \strokec5 false\cf0 \cb1 \strokec3 \
+\cb2                 \},\cb1 \
+\cb2                 \cf4 \strokec4 "typeProperties"\cf0 \strokec3 : \{\cb1 \
+\cb2                     \cf4 \strokec4 "source"\cf0 \strokec3 : \{\cb1 \
+\cb2                         \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "BinarySource"\cf0 \strokec3 ,\cb1 \
+\cb2                         \cf4 \strokec4 "storeSettings"\cf0 \strokec3 : \{\cb1 \
+\cb2                             \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "HttpReadSettings"\cf0 \strokec3 ,\cb1 \
+\cb2                             \cf4 \strokec4 "requestMethod"\cf0 \strokec3 : \cf5 \strokec5 "GET"\cf0 \cb1 \strokec3 \
+\cb2                         \},\cb1 \
+\cb2                         \cf4 \strokec4 "formatSettings"\cf0 \strokec3 : \{\cb1 \
+\cb2                             \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "BinaryReadSettings"\cf0 \cb1 \strokec3 \
+\cb2                         \},\cb1 \
+\cb2                         \cf4 \strokec4 "datasetSettings"\cf0 \strokec3 : \{\cb1 \
+\cb2                             \cf4 \strokec4 "annotations"\cf0 \strokec3 : [],\cb1 \
+\cb2                             \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "Binary"\cf0 \strokec3 ,\cb1 \
+\cb2                             \cf4 \strokec4 "typeProperties"\cf0 \strokec3 : \{\cb1 \
+\cb2                                 \cf4 \strokec4 "location"\cf0 \strokec3 : \{\cb1 \
+\cb2                                     \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "HttpServerLocation"\cf0 \strokec3 ,\cb1 \
+\cb2                                     \cf4 \strokec4 "relativeUrl"\cf0 \strokec3 : \cf5 \strokec5 "misc/taxi_zone_lookup.csv"\cf0 \cb1 \strokec3 \
+\cb2                                 \}\cb1 \
+\cb2                             \},\cb1 \
+\cb2                             \cf4 \strokec4 "externalReferences"\cf0 \strokec3 : \{\cb1 \
+\cb2                                 \cf4 \strokec4 "connection"\cf0 \strokec3 : \cf5 \strokec5 "12e17a61-9f08-4a3a-978c-086f44c6a3f2"\cf0 \cb1 \strokec3 \
+\cb2                             \}\cb1 \
+\cb2                         \}\cb1 \
+\cb2                     \},\cb1 \
+\cb2                     \cf4 \strokec4 "sink"\cf0 \strokec3 : \{\cb1 \
+\cb2                         \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "BinarySink"\cf0 \strokec3 ,\cb1 \
+\cb2                         \cf4 \strokec4 "storeSettings"\cf0 \strokec3 : \{\cb1 \
+\cb2                             \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "LakehouseWriteSettings"\cf0 \cb1 \strokec3 \
+\cb2                         \},\cb1 \
+\cb2                         \cf4 \strokec4 "datasetSettings"\cf0 \strokec3 : \{\cb1 \
+\cb2                             \cf4 \strokec4 "annotations"\cf0 \strokec3 : [],\cb1 \
+\cb2                             \cf4 \strokec4 "linkedService"\cf0 \strokec3 : \{\cb1 \
+\cb2                                 \cf4 \strokec4 "name"\cf0 \strokec3 : \cf5 \strokec5 "hl_taxi"\cf0 \strokec3 ,\cb1 \
+\cb2                                 \cf4 \strokec4 "properties"\cf0 \strokec3 : \{\cb1 \
+\cb2                                     \cf4 \strokec4 "annotations"\cf0 \strokec3 : [],\cb1 \
+\cb2                                     \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "Lakehouse"\cf0 \strokec3 ,\cb1 \
+\cb2                                     \cf4 \strokec4 "typeProperties"\cf0 \strokec3 : \{\cb1 \
+\cb2                                         \cf4 \strokec4 "workspaceId"\cf0 \strokec3 : \cf5 \strokec5 "8b06bc6f-25b1-4e15-b8bd-348a7c22b033"\cf0 \strokec3 ,\cb1 \
+\cb2                                         \cf4 \strokec4 "artifactId"\cf0 \strokec3 : \cf5 \strokec5 "99922261-37a4-4160-8a99-b4bfe98958a1"\cf0 \strokec3 ,\cb1 \
+\cb2                                         \cf4 \strokec4 "rootFolder"\cf0 \strokec3 : \cf5 \strokec5 "Files"\cf0 \cb1 \strokec3 \
+\cb2                                     \}\cb1 \
+\cb2                                 \}\cb1 \
+\cb2                             \},\cb1 \
+\cb2                             \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "Binary"\cf0 \strokec3 ,\cb1 \
+\cb2                             \cf4 \strokec4 "typeProperties"\cf0 \strokec3 : \{\cb1 \
+\cb2                                 \cf4 \strokec4 "location"\cf0 \strokec3 : \{\cb1 \
+\cb2                                     \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "LakehouseLocation"\cf0 \strokec3 ,\cb1 \
+\cb2                                     \cf4 \strokec4 "fileName"\cf0 \strokec3 : \cf5 \strokec5 "taxi_zone_lookup.csv"\cf0 \strokec3 ,\cb1 \
+\cb2                                     \cf4 \strokec4 "folderPath"\cf0 \strokec3 : \cf5 \strokec5 "/Files/reference"\cf0 \cb1 \strokec3 \
+\cb2                                 \}\cb1 \
+\cb2                             \}\cb1 \
+\cb2                         \}\cb1 \
+\cb2                     \},\cb1 \
+\cb2                     \cf4 \strokec4 "enableStaging"\cf0 \strokec3 : \cf5 \strokec5 false\cf0 \cb1 \strokec3 \
+\cb2                 \}\cb1 \
+\cb2             \},\cb1 \
+\cb2             \{\cb1 \
+\cb2                 \cf4 \strokec4 "name"\cf0 \strokec3 : \cf5 \strokec5 "Copy data1"\cf0 \strokec3 ,\cb1 \
+\cb2                 \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "Copy"\cf0 \strokec3 ,\cb1 \
+\cb2                 \cf4 \strokec4 "dependsOn"\cf0 \strokec3 : [],\cb1 \
+\cb2                 \cf4 \strokec4 "policy"\cf0 \strokec3 : \{\cb1 \
+\cb2                     \cf4 \strokec4 "timeout"\cf0 \strokec3 : \cf5 \strokec5 "0.12:00:00"\cf0 \strokec3 ,\cb1 \
+\cb2                     \cf4 \strokec4 "retry"\cf0 \strokec3 : \cf6 \strokec6 0\cf0 \strokec3 ,\cb1 \
+\cb2                     \cf4 \strokec4 "retryIntervalInSeconds"\cf0 \strokec3 : \cf6 \strokec6 30\cf0 \strokec3 ,\cb1 \
+\cb2                     \cf4 \strokec4 "secureOutput"\cf0 \strokec3 : \cf5 \strokec5 false\cf0 \strokec3 ,\cb1 \
+\cb2                     \cf4 \strokec4 "secureInput"\cf0 \strokec3 : \cf5 \strokec5 false\cf0 \cb1 \strokec3 \
+\cb2                 \},\cb1 \
+\cb2                 \cf4 \strokec4 "typeProperties"\cf0 \strokec3 : \{\cb1 \
+\cb2                     \cf4 \strokec4 "source"\cf0 \strokec3 : \{\cb1 \
+\cb2                         \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "BinarySource"\cf0 \strokec3 ,\cb1 \
+\cb2                         \cf4 \strokec4 "storeSettings"\cf0 \strokec3 : \{\cb1 \
+\cb2                             \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "HttpReadSettings"\cf0 \strokec3 ,\cb1 \
+\cb2                             \cf4 \strokec4 "requestMethod"\cf0 \strokec3 : \cf5 \strokec5 "GET"\cf0 \cb1 \strokec3 \
+\cb2                         \},\cb1 \
+\cb2                         \cf4 \strokec4 "formatSettings"\cf0 \strokec3 : \{\cb1 \
+\cb2                             \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "BinaryReadSettings"\cf0 \cb1 \strokec3 \
+\cb2                         \},\cb1 \
+\cb2                         \cf4 \strokec4 "datasetSettings"\cf0 \strokec3 : \{\cb1 \
+\cb2                             \cf4 \strokec4 "annotations"\cf0 \strokec3 : [],\cb1 \
+\cb2                             \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "Binary"\cf0 \strokec3 ,\cb1 \
+\cb2                             \cf4 \strokec4 "typeProperties"\cf0 \strokec3 : \{\cb1 \
+\cb2                                 \cf4 \strokec4 "location"\cf0 \strokec3 : \{\cb1 \
+\cb2                                     \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "HttpServerLocation"\cf0 \strokec3 ,\cb1 \
+\cb2                                     \cf4 \strokec4 "relativeUrl"\cf0 \strokec3 : \cf5 \strokec5 "trip-data/yellow_tripdata_2025-06.parquet"\cf0 \cb1 \strokec3 \
+\cb2                                 \}\cb1 \
+\cb2                             \},\cb1 \
+\cb2                             \cf4 \strokec4 "externalReferences"\cf0 \strokec3 : \{\cb1 \
+\cb2                                 \cf4 \strokec4 "connection"\cf0 \strokec3 : \cf5 \strokec5 "12e17a61-9f08-4a3a-978c-086f44c6a3f2"\cf0 \cb1 \strokec3 \
+\cb2                             \}\cb1 \
+\cb2                         \}\cb1 \
+\cb2                     \},\cb1 \
+\cb2                     \cf4 \strokec4 "sink"\cf0 \strokec3 : \{\cb1 \
+\cb2                         \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "BinarySink"\cf0 \strokec3 ,\cb1 \
+\cb2                         \cf4 \strokec4 "storeSettings"\cf0 \strokec3 : \{\cb1 \
+\cb2                             \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "LakehouseWriteSettings"\cf0 \cb1 \strokec3 \
+\cb2                         \},\cb1 \
+\cb2                         \cf4 \strokec4 "datasetSettings"\cf0 \strokec3 : \{\cb1 \
+\cb2                             \cf4 \strokec4 "annotations"\cf0 \strokec3 : [],\cb1 \
+\cb2                             \cf4 \strokec4 "linkedService"\cf0 \strokec3 : \{\cb1 \
+\cb2                                 \cf4 \strokec4 "name"\cf0 \strokec3 : \cf5 \strokec5 "hl_taxi"\cf0 \strokec3 ,\cb1 \
+\cb2                                 \cf4 \strokec4 "properties"\cf0 \strokec3 : \{\cb1 \
+\cb2                                     \cf4 \strokec4 "annotations"\cf0 \strokec3 : [],\cb1 \
+\cb2                                     \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "Lakehouse"\cf0 \strokec3 ,\cb1 \
+\cb2                                     \cf4 \strokec4 "typeProperties"\cf0 \strokec3 : \{\cb1 \
+\cb2                                         \cf4 \strokec4 "workspaceId"\cf0 \strokec3 : \cf5 \strokec5 "8b06bc6f-25b1-4e15-b8bd-348a7c22b033"\cf0 \strokec3 ,\cb1 \
+\cb2                                         \cf4 \strokec4 "artifactId"\cf0 \strokec3 : \cf5 \strokec5 "99922261-37a4-4160-8a99-b4bfe98958a1"\cf0 \strokec3 ,\cb1 \
+\cb2                                         \cf4 \strokec4 "rootFolder"\cf0 \strokec3 : \cf5 \strokec5 "Files"\cf0 \cb1 \strokec3 \
+\cb2                                     \}\cb1 \
+\cb2                                 \}\cb1 \
+\cb2                             \},\cb1 \
+\cb2                             \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "Binary"\cf0 \strokec3 ,\cb1 \
+\cb2                             \cf4 \strokec4 "typeProperties"\cf0 \strokec3 : \{\cb1 \
+\cb2                                 \cf4 \strokec4 "location"\cf0 \strokec3 : \{\cb1 \
+\cb2                                     \cf4 \strokec4 "type"\cf0 \strokec3 : \cf5 \strokec5 "LakehouseLocation"\cf0 \strokec3 ,\cb1 \
+\cb2                                     \cf4 \strokec4 "fileName"\cf0 \strokec3 : \cf5 \strokec5 "yellow/2025-06"\cf0 \strokec3 ,\cb1 \
+\cb2                                     \cf4 \strokec4 "folderPath"\cf0 \strokec3 : \cf5 \strokec5 "/Files/bronze"\cf0 \cb1 \strokec3 \
+\cb2                                 \}\cb1 \
+\cb2                             \}\cb1 \
+\cb2                         \}\cb1 \
+\cb2                     \},\cb1 \
+\cb2                     \cf4 \strokec4 "enableStaging"\cf0 \strokec3 : \cf5 \strokec5 false\cf0 \cb1 \strokec3 \
+\cb2                 \}\cb1 \
+\cb2             \}\cb1 \
+\cb2         ],\cb1 \
+\cb2         \cf4 \strokec4 "lastModifiedByObjectId"\cf0 \strokec3 : \cf5 \strokec5 "c1248721-6a81-4e10-8990-0a387c0e5c2d"\cf0 \strokec3 ,\cb1 \
+\cb2         \cf4 \strokec4 "lastPublishTime"\cf0 \strokec3 : \cf5 \strokec5 "2025-08-29T20:07:03Z"\cf0 \cb1 \strokec3 \
+\cb2     \}\cb1 \
+\cb2 \}\cb1 \
+}
