@@ -2,12 +2,12 @@
 
 > Ingest → Lakehouse → PySpark (Bronze→Silver→Gold) → **Direct Lake** semantic model → **Power BI** report.
 
-<div align="center">
-  
-**Stack**  
-🟢 **Source** • 🔵 **Ingest** • 🟡 **Lakehouse** • 🟣 **Transform** • 🪨 **Model** • 🌸 **Report**
+<p align="center">
+  <strong>Stack</strong><br/>
+  🟢 <b>Source</b> · 🔵 <b>Ingest</b> · 🟡 <b>Lakehouse</b> · 🟣 <b>Transform</b> · 🪨 <b>Model</b> · 🌸 <b>Report</b>
+</p>
 
-</div>
+
 
 ---
 
