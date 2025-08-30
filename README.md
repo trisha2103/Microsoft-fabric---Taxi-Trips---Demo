@@ -46,21 +46,59 @@ City mobility teams and operations analysts need **fresh, trustworthy** insight 
 - **Repeatable**: Add new months to the pipeline list (or schedule monthly) → Silver/Gold refresh → report auto-updates.
 
 ---
-## Architecture
+## Tools & Technologies
 
-flowchart LR
-    A["Source\nNYC Taxi Open Data (HTTP)\n- yellow_tripdata_2025-05.parquet\n- yellow_tripdata_2025-06.parquet\n- yellow_tripdata_2025-07.parquet\n- taxi_zone_lookup.csv"]:::src
-    B["Ingest\nFabric Data Pipeline (HTTP to Lakehouse)\n- Binary copy ON\n- Paths: /Files/bronze/yellow/YYYY-MM/ and /Files/reference/"]:::ing
-    C["Lakehouse (Bronze files)\nRaw parquet folders in OneLake"]:::lake
-    D["Transform (PySpark)\nBronze -> Silver -> Gold\n- type casting and union\n- add missing airport_fee\n- write star schema"]:::xform
-    E["Semantic Model (Direct Lake)\n- gold_dim_date\n- gold_dim_zone\n- gold_fact_trips\n- DAX measures"]:::model
-    F["Power BI Report\nKPI, trends, slicers"]:::report
+### Microsoft Fabric
+- **Lakehouse (OneLake storage)**
+- **Notebooks (PySpark)** for transforms *(Bronze → Silver → Gold)*
+- **Data pipeline (Copy data)** for HTTP → Lakehouse ingest *(binary copy)*
+- **Direct Lake semantic model** *(star schema on Gold tables)*
 
-    A --> B --> C --> D --> E --> F
+### Power BI
+- **Fabric web authoring** with Direct Lake
+- **Power BI Desktop** compatible *(PBIX export/import)*
+- **DAX** for measures *(e.g., Total Trips, Total Revenue, Tip %)*
 
-    classDef src fill:#2ecc71,stroke:#1f8f59,color:#0b3d2e,stroke-width:1.5px;
-    classDef ing fill:#4da3ff,stroke:#1b5fb3,color:#0b2b57,stroke-width:1.5px;
-    classDef lake fill:#f4c542,stroke:#b38700,color:#4d3a00,stroke-width:1.5px;
-    classDef xform fill:#b07ce6,stroke:#723ba8,color:#2e1450,stroke-width:1.5px;
-    classDef model fill:#2d3e50,stroke:#1b2633,color:#e9eef4,stroke-width:1.5px;
-    classDef report fill:#f28aa6,stroke:#c94c6b,color:#4a0e1b,stroke-width:1.5px;
+### Processing
+- **PySpark** for cleansing, type-casting, unioning monthly data, and derived columns
+
+### Data Formats & Access
+- **Parquet / CSV** over **HTTP (Anonymous)** sources *(NYC TLC Open Data)*
+
+
+## Model Details (Measures & Relationships)
+
+### Relationships
+- `gold_fact_trips[date_key]` → `gold_dim_date[date_key]` *(active, one-to-many)*
+- `gold_fact_trips[do_zone_id]` → `gold_dim_zone[zone_id]` *(active)*
+- `gold_fact_trips[pu_zone_id]` → `gold_dim_zone[zone_id]` *(inactive, enable with USERELATIONSHIP in measures)*
+
+### Key DAX
+```DAX
+-- Fact metrics
+Total Trips = COUNTROWS('gold_fact_trips')
+
+Total Revenue = SUM('gold_fact_trips'[total_amount])
+
+Tip % =
+DIVIDE(
+    SUM('gold_fact_trips'[tip_amount]),
+    SUM('gold_fact_trips'[fare_amount])
+)
+
+-- Example: use drop-off zone via inactive relationship
+Trips (Dropoff) =
+CALCULATE(
+    [Total Trips],
+    USERELATIONSHIP('gold_fact_trips'[do_zone_id], 'gold_dim_zone'[zone_id])
+)
+---
+### Highlights
+
+- ** Direct Lake = import-free, fast, and scalable reporting.
+
+- ** Clean star schema (1 fact + 2 dims) enables flexible time/zone analysis.
+
+- ** Minimal ops: drop new monthly files → re-run notebook → visuals just work.
+
+- ** Transparent pipeline: simple HTTP → Lakehouse Binary copy (no auth).
