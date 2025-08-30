@@ -45,21 +45,21 @@ City mobility teams need **fresh, trustworthy** insights into taxi demand (trips
 ## 🧰 Tools & Technologies
 
 ### Microsoft Fabric
-- 🟡 **Lakehouse (OneLake storage)**
-- 🟣 **Notebooks (PySpark)** for transforms *(Bronze → Silver → Gold)*
-- 🔵 **Data pipeline (Copy data)** for HTTP → Lakehouse ingest *(binary copy)*
-- 🪨 **Direct Lake semantic model** *(star schema on Gold tables)*
+-  **Lakehouse (OneLake storage)**
+-  **Notebooks (PySpark)** for transforms *(Bronze → Silver → Gold)*
+-  **Data pipeline (Copy data)** for HTTP → Lakehouse ingest *(binary copy)*
+-  **Direct Lake semantic model** *(star schema on Gold tables)*
 
 ### Power BI
-- 🌐 **Fabric web authoring** with Direct Lake
-- 💻 **Power BI Desktop** compatible *(PBIX export/import)*
-- ➕ **DAX** for measures *(Total Trips, Total Revenue, Tip %)*
+-  **Fabric web authoring** with Direct Lake
+-  **Power BI Desktop** compatible *(PBIX export/import)*
+-  **DAX** for measures *(Total Trips, Total Revenue, Tip %)*
 
 ### Processing
-- 🐍 **PySpark** for cleansing, type-casting, unioning monthly data, and derived fields
+-  **PySpark** for cleansing, type-casting, unioning monthly data, and derived fields
 
 ### Data Formats & Access
-- 📦 **Parquet/CSV over HTTP (Anonymous)** *(NYC TLC Open Data)*
+-  **Parquet/CSV over HTTP (Anonymous)** *(NYC TLC Open Data)*
 
 ---
 
