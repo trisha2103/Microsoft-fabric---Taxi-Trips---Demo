@@ -1,85 +1,63 @@
-# NYC Yellow Taxi — Microsoft Fabric End-to-End (May–Jul 2025)
+# 🚕 NYC Yellow Taxi — Microsoft Fabric End-to-End (May–Jul 2025)
 
-![Report overview](Taxi%20Trips_Report.png)
+> Ingest → Lakehouse → PySpark (Bronze→Silver→Gold) → **Direct Lake** semantic model → **Power BI** report.
 
-> An end-to-end analytics project built on **Microsoft Fabric**: ingest → lakehouse → PySpark transform (Bronze→Silver→Gold) → **Direct Lake** semantic model → Power BI report.
+<div align="center">
+  
+**Stack**  
+🟢 **Source** • 🔵 **Ingest** • 🟡 **Lakehouse** • 🟣 **Transform** • 🪨 **Model** • 🌸 **Report**
 
----
-
-## Table of contents
-- [Problem](#problem)  
-- [Solution at a glance](#solution-at-a-glance)  
-- [Impact](#impact)  
-- [Architecture & Data Flow](#architecture--data-flow)  
-- [Gold ER Diagram](#gold-er-diagram)  
-- [Tools & Technologies](#tools--technologies)  
-- [What’s in this repo](#whats-in-this-repo)  
-- [Repro in Fabric (quick start)](#repro-in-fabric-quick-start)  
-- [Model details (measures & relationships)](#model-details-measures--relationships)  
-- [Next steps / ideas](#next-steps--ideas)  
-- [License](#license)
+</div>
 
 ---
 
-## Problem
-City mobility teams and operations analysts need **fresh, trustworthy** insight into taxi demand (trips, revenue, tipping behavior) with the ability to **slice by time and geography**—without waiting on long refreshes or brittle ETL chains.
+## 🎯 Problem
+
+City mobility teams need **fresh, trustworthy** insights into taxi demand (trips, revenue, tipping) with the ability to slice by **time** and **geography**—without long refresh times or brittle ETL.
 
 **Constraints**
-- Sources are public, **HTTP-hosted parquet/CSV** files (no credentials).
-- Analysts want **interactive Power BI** with **low latency** on millions of rows.
-- A single pipeline should be maintainable and extensible (new months, new features).
+
+- Public **HTTP** parquet/CSV files (no credentials)  
+- **Interactive** Power BI over **millions of rows**  
+- Simple, **repeatable** pipeline that scales month-over-month
 
 ---
 
-## Solution at a glance
-- **Ingest** NYC Yellow Taxi parquet files (May–Jul 2025) and the **zone lookup** CSV via Fabric **Data pipeline (HTTP → Lakehouse)** with **Binary copy ON**.  
-- Store raw files in Lakehouse **Bronze** (`/Files/bronze/yellow/YYYY-MM/`), reference data in `/Files/reference/`.
-- A **PySpark Notebook** builds **Silver** (cleaned/typed) and **Gold** (star schema) tables.
-- A **Direct Lake** semantic model exposes curated tables to **Power BI** with DAX measures.
-- A **Power BI** report delivers KPI cards, trends by date/hour, and borough breakdowns.
+## ✅ Solution at a Glance
+
+- 🔵 **Ingest** TLC Yellow Taxi Parquet (May–Jul 2025) + **zone lookup CSV** via Fabric **Copy Data** (HTTP → Lakehouse, **Binary copy ON**).
+- 🟡 Store raw files in **Bronze** (`/Files/bronze/yellow/YYYY-MM/`) and reference in `/Files/reference/`.
+- 🟣 Fabric **Notebook (PySpark)** builds **Silver** (cleaned/typed) and **Gold** (star schema) tables.
+- 🪨 A **Direct Lake** semantic model exposes curated tables and DAX measures.
+- 🌸 A **Power BI** report delivers KPI cards, trends by date/hour, and borough breakdowns.
 
 ---
 
-## Impact
-- **Interactive performance**: Direct Lake reads directly from the Lakehouse without import, enabling near-instant report interaction at scale.  
-- **Trustworthy**: Single, governed star schema (date and zone dimensions) + clear DAX.  
-- **Repeatable**: Add new months to the pipeline list (or schedule monthly) → Silver/Gold refresh → report auto-updates.
+## 📈 Impact
+
+- **Near-instant interactivity** via **Direct Lake** (no import, no refresh wait).  
+- **Trust & clarity** with a clean **star schema** and transparent DAX.  
+- **Repeatable**: add the next month, re-run the notebook, the report just works.
 
 ---
-## Tools & Technologies
 
-### Microsoft Fabric
-- **Lakehouse (OneLake storage)**
-- **Notebooks (PySpark)** for transforms *(Bronze → Silver → Gold)*
-- **Data pipeline (Copy data)** for HTTP → Lakehouse ingest *(binary copy)*
-- **Direct Lake semantic model** *(star schema on Gold tables)*
+## 🧭 Architecture & Data Flow
 
-### Power BI
-- **Fabric web authoring** with Direct Lake
-- **Power BI Desktop** compatible *(PBIX export/import)*
-- **DAX** for measures *(e.g., Total Trips, Total Revenue, Tip %)*
+```mermaid
+flowchart LR
+  A[Source\nNYC TLC Open Data\nHTTP Parquet + CSV] --> B[Ingest\nFabric Copy Data\nHTTP -> Lakehouse\nBinary copy ON]
+  B --> C[Lakehouse Bronze\n/Files/bronze/yellow/YYYY-MM\n/Files/reference]
+  C --> D[Transform\nFabric Notebook (PySpark)\nBronze -> Silver -> Gold]
+  D --> E[Gold Tables\nDirect Lake star schema]
+  E --> F[Semantic Model\nMeasures + Date table marked]
+  F --> G[Power BI Report\nDirect Lake, slicers, KPIs]
 
-### Processing
-- **PySpark** for cleansing, type-casting, unioning monthly data, and derived columns
+  classDef src fill:#2ecc71,color:#0b3d2e,stroke:#0b3d2e,stroke-width:1px;
+  classDef ing fill:#4da3ff,color:#0b2b57,stroke:#0b2b57,stroke-width:1px;
+  classDef lake fill:#f4c34f,color:#6a4b00,stroke:#6a4b00,stroke-width:1px;
+  classDef tfm fill:#b084f5,color:#40286a,stroke:#40286a,stroke-width:1px;
+  classDef gold fill:#ffe6a4,color:#6a4b00,stroke:#6a4b00,stroke-width:1px;
+  classDef model fill:#27384a,color:#ffffff,stroke:#1b2836,stroke-width:1px;
+  classDef rpt fill:#ff99aa,color:#5a0c1f,stroke:#5a0c1f,stroke-width:1px;
 
-### Data Formats & Access
-- **Parquet / CSV** over **HTTP (Anonymous)** sources *(NYC TLC Open Data)*
-
-
-## Model Details (Measures & Relationships)
-
-### Relationships
-- `gold_fact_trips[date_key]` → `gold_dim_date[date_key]` *(active, one-to-many)*
-- `gold_fact_trips[do_zone_id]` → `gold_dim_zone[zone_id]` *(active)*
-- `gold_fact_trips[pu_zone_id]` → `gold_dim_zone[zone_id]` *(inactive, enable with USERELATIONSHIP in measures)*
-
----
-### Highlights
-
-- ** Direct Lake = import-free, fast, and scalable reporting.
-
-- ** Clean star schema (1 fact + 2 dims) enables flexible time/zone analysis.
-
-- ** Minimal ops: drop new monthly files → re-run notebook → visuals just work.
-
-- ** Transparent pipeline: simple HTTP → Lakehouse Binary copy (no auth).
+  class A src; class B ing; class C lake; class D tfm; class E gold; class F model; class G rpt;
