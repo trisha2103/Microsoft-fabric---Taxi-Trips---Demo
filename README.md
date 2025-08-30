@@ -46,23 +46,21 @@ City mobility teams and operations analysts need **fresh, trustworthy** insight 
 - **Repeatable**: Add new months to the pipeline list (or schedule monthly) → Silver/Gold refresh → report auto-updates.
 
 ---
+## Architecture
 
-## Architecture & Data Flow
-
-```mermaid
 flowchart LR
-    A[Source\nNYC Taxi Open Data (HTTP)\n• yellow_tripdata_2025-05.parquet\n• yellow_tripdata_2025-06.parquet\n• yellow_tripdata_2025-07.parquet\n• taxi_zone_lookup.csv]:::src
-    B[Ingest\nFabric Data Pipeline (HTTP→Lakehouse)\n• Binary copy ON\n• Paths: /Files/bronze/yellow/YYYY-MM/\n• /Files/reference/]:::ing
-    C[Lakehouse (Bronze Files)\nRaw parquet folders in OneLake]:::lake
-    D[Transform (PySpark)\nBronze→Silver→Gold\n• type casting / union months\n• add missing columns (airport_fee)\n• write star schema]:::xform
-    E[Semantic Model (Direct Lake)\n• gold_dim_date\n• gold_dim_zone\n• gold_fact_trips\n• DAX measures]:::model
-    F[Power BI Report\nKPI + Trends + Slicers]:::report
+    A["Source\nNYC Taxi Open Data (HTTP)\n- yellow_tripdata_2025-05.parquet\n- yellow_tripdata_2025-06.parquet\n- yellow_tripdata_2025-07.parquet\n- taxi_zone_lookup.csv"]:::src
+    B["Ingest\nFabric Data Pipeline (HTTP to Lakehouse)\n- Binary copy ON\n- Paths: /Files/bronze/yellow/YYYY-MM/ and /Files/reference/"]:::ing
+    C["Lakehouse (Bronze files)\nRaw parquet folders in OneLake"]:::lake
+    D["Transform (PySpark)\nBronze -> Silver -> Gold\n- type casting and union\n- add missing airport_fee\n- write star schema"]:::xform
+    E["Semantic Model (Direct Lake)\n- gold_dim_date\n- gold_dim_zone\n- gold_fact_trips\n- DAX measures"]:::model
+    F["Power BI Report\nKPI, trends, slicers"]:::report
 
     A --> B --> C --> D --> E --> F
 
-classDef src fill:#2ecc71,stroke:#1f8f59,color:#0b3d2e,stroke-width:1.5px;
-classDef ing fill:#4da3ff,stroke:#1b5fb3,color:#0b2b57,stroke-width:1.5px;
-classDef lake fill:#f4c542,stroke:#b38700,color:#4d3a00,stroke-width:1.5px;
-classDef xform fill:#b07ce6,stroke:#723ba8,color:#2e1450,stroke-width:1.5px;
-classDef model fill:#2d3e50,stroke:#1b2633,color:#e9eef4,stroke-width:1.5px;
-classDef report fill:#f28aa6,stroke:#c94c6b,color:#4a0e1b,stroke-width:1.5px;
+    classDef src fill:#2ecc71,stroke:#1f8f59,color:#0b3d2e,stroke-width:1.5px;
+    classDef ing fill:#4da3ff,stroke:#1b5fb3,color:#0b2b57,stroke-width:1.5px;
+    classDef lake fill:#f4c542,stroke:#b38700,color:#4d3a00,stroke-width:1.5px;
+    classDef xform fill:#b07ce6,stroke:#723ba8,color:#2e1450,stroke-width:1.5px;
+    classDef model fill:#2d3e50,stroke:#1b2633,color:#e9eef4,stroke-width:1.5px;
+    classDef report fill:#f28aa6,stroke:#c94c6b,color:#4a0e1b,stroke-width:1.5px;
