@@ -42,26 +42,68 @@ City mobility teams need **fresh, trustworthy** insights into taxi demand (trips
 
 ---
 
-## 🧭 Architecture & Data Flow
+## 🧰 Tools & Technologies
 
+### Microsoft Fabric
+- 🟡 **Lakehouse (OneLake storage)**
+- 🟣 **Notebooks (PySpark)** for transforms *(Bronze → Silver → Gold)*
+- 🔵 **Data pipeline (Copy data)** for HTTP → Lakehouse ingest *(binary copy)*
+- 🪨 **Direct Lake semantic model** *(star schema on Gold tables)*
 
-Here’s a copy-paste block that renders on github.com (uses `<br/>` for line breaks and avoids characters Mermaid dislikes):
+### Power BI
+- 🌐 **Fabric web authoring** with Direct Lake
+- 💻 **Power BI Desktop** compatible *(PBIX export/import)*
+- ➕ **DAX** for measures *(Total Trips, Total Revenue, Tip %)*
+
+### Processing
+- 🐍 **PySpark** for cleansing, type-casting, unioning monthly data, and derived fields
+
+### Data Formats & Access
+- 📦 **Parquet/CSV over HTTP (Anonymous)** *(NYC TLC Open Data)*
+
+---
+
+## 🧱 Data Model (ER)
 
 ```mermaid
-flowchart LR
-  A[Source<br/>NYC TLC Open Data<br/>HTTP Parquet & CSV] --> B[Ingest<br/>Fabric Copy Data<br/>HTTP → Lakehouse<br/>Binary copy ON]
-  B --> C[Lakehouse Bronze<br/>/Files/bronze/yellow/YYYY-MM<br/>/Files/reference]
-  C --> D[Transform<br/>Fabric Notebook (PySpark)<br/>Bronze → Silver → Gold]
-  D --> E[Gold Tables<br/>Direct Lake star schema]
-  E --> F[Semantic Model<br/>Measures + Date table marked]
-  F --> G[Power BI Report<br/>Direct Lake, slicers, KPIs]
+erDiagram
+  GOLD_DIM_DATE {
+    INT    date_key PK
+    DATE   date
+    INT    year
+    INT    week_of_year
+    STRING day_of_week
+    INT    is_weekend
+  }
 
-  classDef src fill:#2ecc71,stroke:#0b3d2e,color:#0b3d2e;
-  classDef ing fill:#4da3ff,stroke:#0b2b57,color:#0b2b57;
-  classDef lake fill:#f4c34f,stroke:#6a4b00,color:#6a4b00;
-  classDef tfm fill:#b084f5,stroke:#40286a,color:#40286a;
-  classDef gold fill:#ffe6a4,stroke:#6a4b00,color:#6a4b00;
-  classDef model fill:#27384a,stroke:#1b2836,color:#ffffff;
-  classDef rpt fill:#ff99aa,stroke:#5a0c1f,color:#5a0c1f;
+  GOLD_DIM_ZONE {
+    INT    zone_id PK
+    STRING Zone
+    STRING Borough
+    STRING service_zone
+  }
 
-  class A src; class B ing; class C lake; class D tfm; class E gold; class F model; class G rpt;
+  GOLD_FACT_TRIPS {
+    INT    date_key FK
+    INT    pu_zone_id
+    INT    do_zone_id
+    INT    passenger_count
+    DOUBLE trip_distance
+    DOUBLE fare_amount
+    DOUBLE tip_amount
+    DOUBLE total_amount
+    INT    pickup_hour
+    DOUBLE congestion_surcharge
+    DOUBLE airport_fee
+  }
+
+  GOLD_DIM_DATE ||--o{ GOLD_FACT_TRIPS : "by date_key"
+  GOLD_DIM_ZONE ||--o{ GOLD_FACT_TRIPS : "by do_zone_id"
+  GOLD_DIM_ZONE ||..o{ GOLD_FACT_TRIPS : "by pu_zone_id (inactive)"
+
+**Relationships**
+
+- `gold_fact_trips[date_key]` → `gold_dim_date[date_key]` *(active, 1 → many)*
+- `gold_fact_trips[do_zone_id]` → `gold_dim_zone[zone_id]` *(active)*
+- `gold_fact_trips[pu_zone_id]` → `gold_dim_zone[zone_id]` *(inactive; enable via `USERELATIONSHIP` in measures)*
+
