@@ -44,21 +44,21 @@ City mobility teams need **fresh, trustworthy** insights into taxi demand (trips
 
 ## 🧭 Architecture & Data Flow
 
-```mermaid
 flowchart LR
-  A[Source\nNYC TLC Open Data\nHTTP Parquet + CSV] --> B[Ingest\nFabric Copy Data\nHTTP -> Lakehouse\nBinary copy ON]
-  B --> C[Lakehouse Bronze\n/Files/bronze/yellow/YYYY-MM\n/Files/reference]
-  C --> D[Transform\nFabric Notebook (PySpark)\nBronze -> Silver -> Gold]
-  D --> E[Gold Tables\nDirect Lake star schema]
-  E --> F[Semantic Model\nMeasures + Date table marked]
-  F --> G[Power BI Report\nDirect Lake, slicers, KPIs]
+  A[Source<br/>NYC TLC Open Data<br/>HTTP Parquet & CSV] --> B[Ingest<br/>Fabric Copy Data<br/>HTTP → Lakehouse<br/>Binary copy ON]
+  B --> C[Lakehouse Bronze<br/>/Files/bronze/yellow/YYYY-MM<br/>/Files/reference]
+  C --> D[Transform<br/>Fabric Notebook (PySpark)<br/>Bronze → Silver → Gold]
+  D --> E[Gold Tables<br/>Direct Lake star schema]
+  E --> F[Semantic Model<br/>Measures + Date table marked]
+  F --> G[Power BI Report<br/>Direct Lake, slicers, KPIs]
 
-  classDef src fill:#2ecc71,color:#0b3d2e,stroke:#0b3d2e,stroke-width:1px;
-  classDef ing fill:#4da3ff,color:#0b2b57,stroke:#0b2b57,stroke-width:1px;
-  classDef lake fill:#f4c34f,color:#6a4b00,stroke:#6a4b00,stroke-width:1px;
-  classDef tfm fill:#b084f5,color:#40286a,stroke:#40286a,stroke-width:1px;
-  classDef gold fill:#ffe6a4,color:#6a4b00,stroke:#6a4b00,stroke-width:1px;
-  classDef model fill:#27384a,color:#ffffff,stroke:#1b2836,stroke-width:1px;
-  classDef rpt fill:#ff99aa,color:#5a0c1f,stroke:#5a0c1f,stroke-width:1px;
+  classDef src fill:#2ecc71,stroke:#0b3d2e,color:#0b3d2e;
+  classDef ing fill:#4da3ff,stroke:#0b2b57,color:#0b2b57;
+  classDef lake fill:#f4c34f,stroke:#6a4b00,color:#6a4b00;
+  classDef tfm fill:#b084f5,stroke:#40286a,color:#40286a;
+  classDef gold fill:#ffe6a4,stroke:#6a4b00,color:#6a4b00;
+  classDef model fill:#27384a,stroke:#1b2836,color:#ffffff;
+  classDef rpt fill:#ff99aa,stroke:#5a0c1f,color:#5a0c1f;
 
   class A src; class B ing; class C lake; class D tfm; class E gold; class F model; class G rpt;
+
