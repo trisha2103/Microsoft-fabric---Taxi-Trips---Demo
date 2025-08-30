@@ -65,45 +65,47 @@ City mobility teams need **fresh, trustworthy** insights into taxi demand (trips
 
 ## 🧱 Data Model (ER)
 
-```mermaid
-erDiagram
-  GOLD_DIM_DATE {
-    INT    date_key PK
-    DATE   date
-    INT    year
-    INT    week_of_year
-    STRING day_of_week
-    INT    is_weekend
-  }
-
-  GOLD_DIM_ZONE {
-    INT    zone_id PK
-    STRING Zone
-    STRING Borough
-    STRING service_zone
-  }
-
-  GOLD_FACT_TRIPS {
-    INT    date_key FK
-    INT    pu_zone_id
-    INT    do_zone_id
-    INT    passenger_count
-    DOUBLE trip_distance
-    DOUBLE fare_amount
-    DOUBLE tip_amount
-    DOUBLE total_amount
-    INT    pickup_hour
-    DOUBLE congestion_surcharge
-    DOUBLE airport_fee
-  }
-
-  GOLD_DIM_DATE ||--o{ GOLD_FACT_TRIPS : "by date_key"
-  GOLD_DIM_ZONE ||--o{ GOLD_FACT_TRIPS : "by do_zone_id"
-  GOLD_DIM_ZONE ||..o{ GOLD_FACT_TRIPS : "by pu_zone_id (inactive)"
-
 **Relationships**
 
 - `gold_fact_trips[date_key]` → `gold_dim_date[date_key]` *(active, 1 → many)*
 - `gold_fact_trips[do_zone_id]` → `gold_dim_zone[zone_id]` *(active)*
 - `gold_fact_trips[pu_zone_id]` → `gold_dim_zone[zone_id]` *(inactive; enable via `USERELATIONSHIP` in measures)*
 
+---
+## 📊 Dashboard
+
+**Report:** *Taxi Trips — May–Jul 2025 (Direct Lake)*  
+![Dashboard](Taxi%20Trips_Report.png)
+
+### What’s inside
+- **KPIs:** Total Trips, Total Revenue, Tip %
+- **Trend:** Trips by Date with a **daily average** constant line
+- **Distribution:** Trips by Hour (0–23)
+- **Geography:** Trips by Borough
+- **Slicers:** Date range (May–Jul 2025), Borough, Weekend flag
+
+### How to use
+1. **Adjust** the date slicer to any range you need.
+2. **Filter** by *Borough* or *Weekend* to focus the analysis.
+3. **Hover** to see tooltips and exact values; the **average line** helps quickly gauge outliers.
+
+---
+
+## ✨ Highlights
+
+- **Direct Lake** = import-free, fast, and scalable reporting.
+- **Clean star schema** *(1 fact + 2 dims)* enables flexible time/zone analysis.
+- **Minimal ops**: drop new monthly files → re-run notebook → visuals just work.
+- **Transparent pipeline**: simple HTTP → Lakehouse **Binary copy** *(no auth)*.
+
+
+## 📎 Notes
+
+- **Dataset:** NYC TLC Yellow Taxi (Open Data)
+- **Months used:** 2025-05 to 2025-07 — add more by extending the pipeline list
+- If your tenant disables **PBIX download**, connect **Power BI Desktop** directly to the **semantic model**
+
+
+## 🧾 License
+
+MIT — see [LICENSE](LICENSE)
