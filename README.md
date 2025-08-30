@@ -44,6 +44,10 @@ City mobility teams need **fresh, trustworthy** insights into taxi demand (trips
 
 ## 🧭 Architecture & Data Flow
 
+
+Here’s a copy-paste block that renders on github.com (uses `<br/>` for line breaks and avoids characters Mermaid dislikes):
+
+```mermaid
 flowchart LR
   A[Source<br/>NYC TLC Open Data<br/>HTTP Parquet & CSV] --> B[Ingest<br/>Fabric Copy Data<br/>HTTP → Lakehouse<br/>Binary copy ON]
   B --> C[Lakehouse Bronze<br/>/Files/bronze/yellow/YYYY-MM<br/>/Files/reference]
@@ -61,4 +65,3 @@ flowchart LR
   classDef rpt fill:#ff99aa,stroke:#5a0c1f,color:#5a0c1f;
 
   class A src; class B ing; class C lake; class D tfm; class E gold; class F model; class G rpt;
-
