@@ -1,7 +1,7 @@
 # 🚕 NYC Yellow Taxi — Microsoft Fabric End-to-End (May–Jul 2025)
 
 <p align="center">
-> Ingest → Lakehouse → PySpark (Bronze→Silver→Gold) → **Direct Lake** semantic model → **Power BI** report.
+> Ingest → Lakehouse → PySpark (Bronze→Silver→Gold) → Direct Lake semantic model → Power BI report.
 </p>
 
 <p align="center">
