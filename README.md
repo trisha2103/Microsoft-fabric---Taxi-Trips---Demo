@@ -73,25 +73,6 @@ City mobility teams and operations analysts need **fresh, trustworthy** insight 
 - `gold_fact_trips[do_zone_id]` → `gold_dim_zone[zone_id]` *(active)*
 - `gold_fact_trips[pu_zone_id]` → `gold_dim_zone[zone_id]` *(inactive, enable with USERELATIONSHIP in measures)*
 
-### Key DAX
-```DAX
--- Fact metrics
-Total Trips = COUNTROWS('gold_fact_trips')
-
-Total Revenue = SUM('gold_fact_trips'[total_amount])
-
-Tip % =
-DIVIDE(
-    SUM('gold_fact_trips'[tip_amount]),
-    SUM('gold_fact_trips'[fare_amount])
-)
-
--- Example: use drop-off zone via inactive relationship
-Trips (Dropoff) =
-CALCULATE(
-    [Total Trips],
-    USERELATIONSHIP('gold_fact_trips'[do_zone_id], 'gold_dim_zone'[zone_id])
-)
 ---
 ### Highlights
 
